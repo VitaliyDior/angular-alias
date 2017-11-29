@@ -1,0 +1,16 @@
+button{
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+
+}
+mat-icon{
+    line-height: 16px;
+    font-size: 13px;
+    position: relative;
+    top: -8px;
+    left: -4px;
+}
+.mat-input-element{
+    width: 80%;
+}

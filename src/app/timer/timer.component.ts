@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { SettingsService } from '../services/settings.service';
 
 @Component({
   selector: 'app-timer',
@@ -7,16 +8,13 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class TimerComponent implements OnInit {
 
-  @Input() interval;
   @Output() finish = new EventEmitter();
-
+  @Input() interval;
   timeLeft = 0;
+  constructor() {
+  }
 
-  constructor() { }
-
-  ngOnInit() { }
-
-  start() {
+  ngOnInit() {
     this.timeLeft = this.interval;
     const handle = setInterval(() => {
       this.timeLeft--;
@@ -25,6 +23,10 @@ export class TimerComponent implements OnInit {
         this.finish.emit();
       }
     }, 1000);
+  }
+
+  start() {
+
   }
 
 }

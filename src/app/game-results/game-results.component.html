@@ -1,0 +1,13 @@
+<div class="ta-c">
+<app-team-result
+          *ngFor="let teamResult of results; let i=index"
+          [teamGameHistory]="teamResult"
+          [teamId]="i"
+  ></app-team-result>
+  <h2>And the winner is {{ winnerTeam }}</h2>
+  <button  mat-button
+          (click)="onNewGameStart()"
+  >
+    New Game
+  </button>
+</div>

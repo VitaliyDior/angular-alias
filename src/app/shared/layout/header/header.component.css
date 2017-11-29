@@ -1,0 +1,25 @@
+mat-toolbal{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items:baseline;
+}
+mat-icon{
+    cursor: pointer;
+}
+mat-toolbar div{
+    text-align: center;
+    text-transform: uppercase;
+    flex-grow: 1;
+}
+mat-toolbar button{
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color:white;
+}
+.active{
+    color: #673ab7;
+}

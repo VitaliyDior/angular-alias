@@ -1,0 +1,37 @@
+<h2>Game Settings</h2>
+<form  [formGroup]="settingsForm">
+  <mat-form-field class="example-full-width">
+    <input matInput
+           placeholder="Round duration"
+           type="number"
+           formControlName="roundDuration"
+    >
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput
+           placeholder="Max Words guessed to win"
+           type="number"
+           formControlName="maxGuessedWords"
+    >
+  </mat-form-field>
+  <mat-checkbox formControlName="enableWordSkippingPenalty">
+    Enable penalty if word skipped
+  </mat-checkbox>
+  <div>
+    <button mat-button
+            type="submit"
+            color="primary"
+            (click)="onSubmit()"
+            [disabled]="settingsForm.pristine"
+    >
+      Save
+    </button>
+    <button mat-button
+            type="submit"
+            color="warn"
+            (click)="toDefaults()"
+    >
+      To defaults
+    </button>
+  </div>
+</form>

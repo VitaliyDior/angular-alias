@@ -1,0 +1,14 @@
+*{
+    text-align: center;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+a{
+    margin:40px 0;
+    font-size: 25px;
+}
+.link-wrap{
+    text-align: center;
+}

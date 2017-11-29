@@ -1,0 +1,37 @@
+<div style="display: none">
+  <div>
+    Score: {{ getScore() }}
+  </div>
+
+  <app-word
+          *ngIf="started && !gameOver && word?.length>0"
+          [word]="word"
+          (played)="onWordPlayed($event)"
+  ></app-word>
+  <div
+          *ngIf="started && !gameOver && word?.length==0">
+    Слова закончились
+  </div>
+
+  <button
+          *ngIf="!started"
+          (click)="started=true; timer.start()">
+    Start
+  </button>
+
+  <app-timer
+          #timer
+          [hidden]="!started || gameOver"
+          interval="10"
+  >
+  </app-timer>
+
+  <div *ngIf="gameOver">
+    <app-word *ngFor="let word of history; trackBy:trackByWord"
+              [word]="word.word"
+              [guessed]="word.guessed"
+              (played)="onHistoryFix($event)"
+    ></app-word>
+    <div>GAME OVER</div>
+  </div>
+</div>

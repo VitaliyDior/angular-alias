@@ -1,0 +1,43 @@
+<div *ngIf="!isTeamListSet">
+    <app-team-list></app-team-list>
+    <div class="go-btn-wrap">
+        <button mat-raised-button
+                color="warn"
+               (click)="prepareForRound()"
+        >
+            Let's play
+        </button>
+    </div>
+</div>
+
+<div *ngIf="isTeamListSet && !gameOver">
+    <div *ngIf="isPrepareForRound" class="ta-c">
+        <p> {{ currentTeam.name }} team now in action!</p>
+        <button mat-raised-button
+                color="warn"
+                (click)="gameStart()"
+        >
+            Start!
+        </button>
+    </div>
+    <div *ngIf="!isPrepareForRound">
+        <app-word
+                [word]="word"
+                [guessedWordsCount]="wordsGuessed"
+                [skippedWordsCount]="wordsSkipped"
+                (played)="onWordPlayed($event)"
+                [hideButtons] = "isRoundFinish"
+        ></app-word>
+        <div class="ta-c" *ngIf="isRoundFinish">
+            Round finished! {{ currentTeam.name }} guessed {{ wordsGuessed | wordPlural }} and skipped {{ wordsSkipped | wordPlural }}
+        </div>
+        <app-timer
+                [interval]="settings.roundDuration"
+                (finish) = "onRoundFinish()"
+        ></app-timer>
+    </div>
+</div>
+
+<div *ngIf="gameOver">
+    <app-game-results></app-game-results>
+</div>

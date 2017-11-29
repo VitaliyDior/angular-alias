@@ -8,6 +8,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class WordComponent implements OnInit {
   @Input() guessed;
   @Input() word;
+  @Input() guessedWordsCount;
+  @Input() skippedWordsCount;
+  @Input() hideButtons;
   @Output() played = new EventEmitter();
   constructor() { }
 

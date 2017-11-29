@@ -1,3 +1,11 @@
 <p>
   {{ timeLeft }}
 </p>
+<div>
+    <mat-progress-bar
+            [bufferValue]="interval"
+            [color]="accent"
+            [value]="interval-timeLeft"
+            [mode]="buffer"
+    ></mat-progress-bar>
+</div>

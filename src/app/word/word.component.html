@@ -1,13 +1,22 @@
 <div class="word">
   <div class="text">{{ word }}</div>
+  <button
+        mat-raised-button
+        color="warn"
+        (click)="played.emit({word: word, guessed: true})"
+        [class.active]="guessed === true"
+        [class.hidden]="hideButtons"
+  >
+    Guessed! {{ guessedWordsCount }}
+  </button>
 
   <button
-    (click)="played.emit({word: word, guessed: true})"
-    [class.active]="guessed === true"
-  >+1</button>
-
-  <button
-    (click)="played.emit({word: word, guessed: false})"
-    [class.active]="guessed === false"
-  >-1</button>
+          mat-raised-button
+          color="primary"
+          (click)="played.emit({word: word, guessed: false})"
+          [class.active]="guessed === false"
+          [class.hidden]="hideButtons"
+  >
+    Skip...{{ skippedWordsCount }}
+  </button>
 </div>

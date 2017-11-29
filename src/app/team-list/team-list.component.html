@@ -1,0 +1,17 @@
+<h2>Setup list of teams</h2>
+<app-team
+        *ngFor="let team of teamsList;let i = index"
+        [index]="i"
+        [teamName]="team"
+        [showRemover] = "teamsList.length>2"
+        (remove)="onTeamRemove($event)"
+        (update)="onTeamNameUpdate($event)"
+></app-team>
+<div class="btn-wrap">
+  <button mat-fab
+          color="primary"
+          (click)="addTeam()"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

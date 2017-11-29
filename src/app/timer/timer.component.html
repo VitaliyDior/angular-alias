@@ -3,9 +3,7 @@
 </p>
 <div>
     <mat-progress-bar
-            [bufferValue]="interval"
-            [color]="accent"
-            [value]="interval-timeLeft"
-            [mode]="buffer"
+            mode="determinate"
+            value="{{ (timeLeft/interval)*100 }}"
     ></mat-progress-bar>
 </div>
